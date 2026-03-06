@@ -5,15 +5,25 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.widget.*
+import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.edit
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 import java.util.*
 
 class PersonalInformationActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
         setContentView(R.layout.activity_personal_information)
+        
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.personal_info_root)) { v, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+            insets
+        }
 
         setupDatePicker()
         setupButtons()
@@ -32,7 +42,11 @@ class PersonalInformationActivity : AppCompatActivity() {
 
     private fun setupButtons() {
         findViewById<ImageView>(R.id.btnBack).setOnClickListener { finish() }
-        findViewById<Button>(R.id.backToMenu).setOnClickListener { finish() }
+        findViewById<Button>(R.id.backToMenu).setOnClickListener { 
+            val intent = Intent(this, MainActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
+            startActivity(intent)
+        }
 
         findViewById<Button>(R.id.nextButton).setOnClickListener {
             if (validateAndSave()) {

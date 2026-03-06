@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/personal_info_root"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F3F4F6">
@@ -18,9 +19,9 @@
 
         <ImageView
             android:id="@+id/btnBack"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/abc_ic_ab_back_material"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_back"
             app:tint="@color/white"
             android:contentDescription="@string/back_to_menu" />
 
@@ -37,6 +38,7 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:fillViewport="true"
         app:layout_constraintBottom_toTopOf="@id/bottomNavigation"
         app:layout_constraintTop_toBottomOf="@id/customActionBar">
 
@@ -157,15 +159,15 @@
                     android:layout_height="wrap_content"
                     android:text="Citizenship" />
 
-                <RadioGroup android:id="@+id/citizenshipGroup" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                <RadioGroup android:id="@+id/citizenshipGroup" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
                     <RadioButton android:id="@+id/filipino" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/filipino" />
-                    <RadioButton android:id="@+id/dualCitizenship" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="16dp" android:text="@string/dual_citizenship" />
+                    <RadioButton android:id="@+id/dualCitizenship" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/dual_citizenship" />
                 </RadioGroup>
 
                 <TextView style="@style/FieldLabel" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="If holder of dual citizenship," />
-                <RadioGroup android:id="@+id/dualTypeGroup" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                <RadioGroup android:id="@+id/dualTypeGroup" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
                     <RadioButton android:id="@+id/byBirth" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="By birth" />
-                    <RadioButton android:id="@+id/byNaturalization" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="16dp" android:text="By naturalization" />
+                    <RadioButton android:id="@+id/byNaturalization" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="By naturalization" />
                 </RadioGroup>
 
                 <TextView style="@style/FieldLabel" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/dual_country" />
