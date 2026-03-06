@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F3F4F6">
+
+    <!-- Custom Action Bar -->
+    <LinearLayout
+        android:id="@+id/customActionBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/primary"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/btnBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/abc_ic_ab_back_material"
+            app:tint="@color/white"
+            android:contentDescription="@string/back_to_menu" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="@string/personal_information_section"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/bottomNavigation"
+        app:layout_constraintTop_toBottomOf="@id/customActionBar">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Name Section -->
+            <LinearLayout
+                style="@style/SectionCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/SectionTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Name" />
+
+                <TextView style="@style/FieldLabel" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/first_name" />
+                <EditText android:id="@+id/firstName" style="@style/AppEditText" android:hint="@string/first_name" android:autofillHints="personGivenName" android:inputType="textPersonName" />
+
+                <TextView style="@style/FieldLabel" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/middle_name" />
+                <EditText android:id="@+id/middleName" style="@style/AppEditText" android:hint="@string/middle_name" android:autofillHints="personMiddleName" android:inputType="textPersonName" />
+
+                <TextView style="@style/FieldLabel" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/surname" />
+                <EditText android:id="@+id/lastName" style="@style/AppEditText" android:hint="@string/surname" android:autofillHints="personFamilyName" android:inputType="textPersonName" />
+
+                <TextView style="@style/FieldLabel" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/name_extension" />
+                <Spinner
+                    android:id="@+id/nameExtensionSpinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_edittext"
+                    android:padding="12dp"
+                    android:entries="@array/name_extension_options"/>
+            </LinearLayout>
+
+            <!-- Demographics Section -->
+            <LinearLayout
+                style="@style/SectionCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/SectionTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Demographics" />
+
+                <TextView style="@style/FieldLabel" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/date_of_birth" />
+                <EditText
+                    android:id="@+id/dateOfBirth"
+                    style="@style/AppEditText"
+                    android:hint="mm/dd/yyyy"
+                    android:focusable="false"
+                    android:clickable="true"
+                    android:inputType="none"
+                    android:importantForAutofill="no" />
+
+                <TextView style="@style/FieldLabel" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/place_of_birth" />
+                <EditText android:id="@+id/placeOfBirth" style="@style/AppEditText" android:hint="@string/place_of_birth" android:importantForAutofill="no" android:inputType="text" />
+
+                <TextView style="@style/FieldLabel" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Sex" />
+                <RadioGroup
+                    android:id="@+id/sexGroup"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <RadioButton android:id="@+id/male" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/male" />
+                    <RadioButton android:id="@+id/female" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="16dp" android:text="@string/female" />
+                </RadioGroup>
+
+                <TextView style="@style/FieldLabel" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Civil Status" />
+                <Spinner
+                    android:id="@+id/civilStatusSpinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_edittext"
+                    android:padding="12dp"
+                    android:entries="@array/civil_status_options"/>
+
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:baselineAligned="false">
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical" android:layout_marginEnd="8dp">
+                        <TextView style="@style/FieldLabel" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/height" />
+                        <EditText android:id="@+id/height" style="@style/AppEditText" android:hint="0.00" android:inputType="numberDecimal" android:importantForAutofill="no" />
+                    </LinearLayout>
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical" android:layout_marginStart="8dp">
+                        <TextView style="@style/FieldLabel" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/weight" />
+                        <EditText android:id="@+id/weight" style="@style/AppEditText" android:hint="00" android:inputType="numberDecimal" android:importantForAutofill="no" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <TextView style="@style/FieldLabel" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/blood_type" />
+                <Spinner
+                    android:id="@+id/bloodTypeSpinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_edittext"
+                    android:padding="12dp"
+                    android:entries="@array/blood_type_options"/>
+            </LinearLayout>
+
+            <!-- Citizenship Section -->
+            <LinearLayout
+                style="@style/SectionCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/SectionTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Citizenship" />
+
+                <RadioGroup android:id="@+id/citizenshipGroup" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                    <RadioButton android:id="@+id/filipino" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/filipino" />
+                    <RadioButton android:id="@+id/dualCitizenship" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="16dp" android:text="@string/dual_citizenship" />
+                </RadioGroup>
+
+                <TextView style="@style/FieldLabel" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="If holder of dual citizenship," />
+                <RadioGroup android:id="@+id/dualTypeGroup" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                    <RadioButton android:id="@+id/byBirth" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="By birth" />
+                    <RadioButton android:id="@+id/byNaturalization" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="16dp" android:text="By naturalization" />
+                </RadioGroup>
+
+                <TextView style="@style/FieldLabel" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/dual_country" />
+                <EditText android:id="@+id/dualCountry" style="@style/AppEditText" android:hint="@string/dual_country" android:importantForAutofill="no" android:inputType="text" />
+            </LinearLayout>
+
+            <!-- Government IDs Section -->
+            <LinearLayout
+                style="@style/SectionCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/SectionTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Government IDs" />
+
+                <TextView style="@style/FieldLabel" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/gsis_id" />
+                <EditText android:id="@+id/gsisId" style="@style/AppEditText" android:hint="@string/gsis_id" android:importantForAutofill="no" android:inputType="text" />
+
+                <TextView style="@style/FieldLabel" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/pagibig_id" />
+                <EditText android:id="@+id/pagibigId" style="@style/AppEditText" android:hint="@string/pagibig_id" android:importantForAutofill="no" android:inputType="text" />
+
+                <TextView style="@style/FieldLabel" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/philhealth_id" />
+                <EditText android:id="@+id/philhealthId" style="@style/AppEditText" android:hint="@string/philhealth_id" android:importantForAutofill="no" android:inputType="text" />
+
+                <TextView style="@style/FieldLabel" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/sss_id" />
+                <EditText android:id="@+id/sssId" style="@style/AppEditText" android:hint="@string/sss_id" android:importantForAutofill="no" android:inputType="text" />
+
+                <TextView style="@style/FieldLabel" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/tin_id" />
+                <EditText android:id="@+id/tinId" style="@style/AppEditText" android:hint="@string/tin_id" android:importantForAutofill="no" android:inputType="text" />
+
+                <TextView style="@style/FieldLabel" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/agency_employee_id" />
+                <EditText android:id="@+id/agencyEmployeeId" style="@style/AppEditText" android:hint="@string/agency_employee_id" android:importantForAutofill="no" android:inputType="text" />
+            </LinearLayout>
+
+            <!-- Residential Address Section -->
+            <LinearLayout
+                style="@style/SectionCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/SectionTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/residential_address" />
+
+                <TextView style="@style/FieldLabel" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="House/Block/Lot No." />
+                <EditText android:id="@+id/resHouseNo" style="@style/AppEditText" android:hint="Enter House No." android:autofillHints="streetAddress" android:inputType="textPostalAddress" />
+
+                <TextView style="@style/FieldLabel" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Street" />
+                <EditText android:id="@+id/resStreet" style="@style/AppEditText" android:hint="Enter Street" android:autofillHints="streetAddress" android:inputType="textPostalAddress" />
+
+                <TextView style="@style/FieldLabel" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Subdivision/Village" />
+                <EditText android:id="@+id/resSubdivision" style="@style/AppEditText" android:hint="Enter Subdivision" android:autofillHints="streetAddress" android:inputType="textPostalAddress" />
+
+                <TextView style="@style/FieldLabel" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Barangay" />
+                <EditText android:id="@+id/resBarangay" style="@style/AppEditText" android:hint="Enter Barangay" android:autofillHints="addressLevel2" android:inputType="textPostalAddress" />
+
+                <TextView style="@style/FieldLabel" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="City/Municipality" />
+                <EditText android:id="@+id/resCity" style="@style/AppEditText" android:hint="Enter City" android:autofillHints="addressLevel1" android:inputType="textPostalAddress" />
+
+                <TextView style="@style/FieldLabel" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Province" />
+                <EditText android:id="@+id/resProvince" style="@style/AppEditText" android:hint="Enter Province" android:autofillHints="addressLevel1" android:inputType="textPostalAddress" />
+
+                <TextView style="@style/FieldLabel" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/zip_code" />
+                <EditText android:id="@+id/resZipCode" style="@style/AppEditText" android:hint="@string/zip_code" android:inputType="number" android:autofillHints="postalCode" />
+            </LinearLayout>
+
+            <!-- Permanent Address Section -->
+            <LinearLayout
+                style="@style/SectionCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/SectionTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/permanent_address" />
+
+                <TextView style="@style/FieldLabel" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="House/Block/Lot No." />
+                <EditText android:id="@+id/permHouseNo" style="@style/AppEditText" android:hint="Enter House No." android:autofillHints="streetAddress" android:inputType="textPostalAddress" />
+
+                <TextView style="@style/FieldLabel" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Street" />
+                <EditText android:id="@+id/permStreet" style="@style/AppEditText" android:hint="Enter Street" android:autofillHints="streetAddress" android:inputType="textPostalAddress" />
+
+                <TextView style="@style/FieldLabel" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Subdivision/Village" />
+                <EditText android:id="@+id/permSubdivision" style="@style/AppEditText" android:hint="Enter Subdivision" android:autofillHints="streetAddress" android:inputType="textPostalAddress" />
+
+                <TextView style="@style/FieldLabel" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Barangay" />
+                <EditText android:id="@+id/permBarangay" style="@style/AppEditText" android:hint="Enter Barangay" android:autofillHints="addressLevel2" android:inputType="textPostalAddress" />
+
+                <TextView style="@style/FieldLabel" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="City/Municipality" />
+                <EditText android:id="@+id/permCity" style="@style/AppEditText" android:hint="Enter City" android:autofillHints="addressLevel1" android:inputType="textPostalAddress" />
+
+                <TextView style="@style/FieldLabel" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Province" />
+                <EditText android:id="@+id/permProvince" style="@style/AppEditText" android:hint="Enter Province" android:autofillHints="addressLevel1" android:inputType="textPostalAddress" />
+
+                <TextView style="@style/FieldLabel" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/permanent_zip_code" />
+                <EditText android:id="@+id/permZipCode" style="@style/AppEditText" android:hint="@string/permanent_zip_code" android:inputType="number" android:autofillHints="postalCode" />
+            </LinearLayout>
+
+            <!-- Contact Section -->
+            <LinearLayout
+                style="@style/SectionCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/SectionTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Contact" />
+
+                <TextView style="@style/FieldLabel" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/telephone" />
+                <EditText android:id="@+id/telephone" style="@style/AppEditText" android:hint="@string/telephone" android:inputType="phone" android:autofillHints="phone" />
+
+                <TextView style="@style/FieldLabel" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/mobile" />
+                <EditText android:id="@+id/mobile" style="@style/AppEditText" android:hint="@string/mobile" android:inputType="phone" android:autofillHints="phone" />
+
+                <TextView style="@style/FieldLabel" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/email" />
+                <EditText android:id="@+id/email" style="@style/AppEditText" android:hint="@string/email" android:inputType="textEmailAddress" android:autofillHints="emailAddress" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Bottom Navigation -->
+    <LinearLayout
+        android:id="@+id/bottomNavigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="vertical"
+        android:padding="16dp"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <Button
+            android:id="@+id/nextButton"
+            style="@style/PrimaryButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:text="@string/next" />
+
+        <Button
+            android:id="@+id/backToMenu"
+            style="@style/SecondaryButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/back_to_main_menu" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

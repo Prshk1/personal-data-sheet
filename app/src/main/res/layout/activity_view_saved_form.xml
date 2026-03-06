@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_light">
+
+    <!-- Custom Action Bar -->
+    <LinearLayout
+        android:id="@+id/customActionBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/primary"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/btnBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/back_to_menu"
+            android:src="@drawable/abc_ic_ab_back_material"
+            app:tint="@color/white" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="@string/view_saved_title"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/share_form"
+            android:src="@drawable/abc_ic_menu_share_mtrl_alpha"
+            app:tint="@color/white" />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/bottomNavigation"
+        app:layout_constraintTop_toBottomOf="@id/customActionBar">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/pds_header"
+                android:textColor="#374151"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                android:gravity="center"
+                android:text="@string/pds_sub_header"
+                android:textColor="#9CA3AF"
+                android:textSize="12sp" />
+
+            <!-- I. PERSONAL INFORMATION -->
+            <TextView
+                style="@style/ViewSectionHeader"
+                android:text="@string/personal_information_section"
+                android:textColor="@color/primary"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:drawableStart="@drawable/ic_person"
+                android:drawablePadding="8dp"
+                android:gravity="center_vertical" />
+
+            <LinearLayout
+                style="@style/SectionCard"
+                android:orientation="vertical">
+
+                <TextView style="@style/FieldLabel" android:text="@string/label_name" />
+                <TextView android:id="@+id/viewFullName" style="@style/FieldValue" />
+
+                <TextView style="@style/FieldLabel" android:text="@string/label_dob" />
+                <TextView android:id="@+id/viewDOB" style="@style/FieldValue" />
+
+                <TextView style="@style/FieldLabel" android:text="@string/label_pob" />
+                <TextView android:id="@+id/viewPOB" style="@style/FieldValue" />
+
+                <TextView style="@style/FieldLabel" android:text="@string/label_sex" />
+                <TextView android:id="@+id/viewSex" style="@style/FieldValue" />
+
+                <TextView style="@style/FieldLabel" android:text="@string/label_civil_status" />
+                <TextView android:id="@+id/viewCivilStatus" style="@style/FieldValue" />
+
+                <TextView style="@style/FieldLabel" android:text="@string/label_citizenship" />
+                <TextView android:id="@+id/viewCitizenship" style="@style/FieldValue" />
+
+                <TextView style="@style/FieldLabel" android:text="@string/label_dual_citizenship" />
+                <TextView android:id="@+id/viewDualCitizenshipDetails" style="@style/FieldValue" />
+
+                <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#F3F4F6" android:layout_marginVertical="8dp"/>
+
+                <TextView style="@style/FieldLabel" android:text="@string/label_physique" />
+                <TextView android:id="@+id/viewPhysique" style="@style/FieldValue" />
+
+                <TextView style="@style/FieldLabel" android:text="@string/label_blood_type" />
+                <TextView android:id="@+id/viewBloodType" style="@style/FieldValue" />
+
+                <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#F3F4F6" android:layout_marginVertical="8dp"/>
+
+                <TextView style="@style/FieldLabel" android:text="@string/label_government_ids" />
+                <TextView android:id="@+id/viewGSIS" style="@style/FieldValue" />
+                <TextView android:id="@+id/viewPAGIBIG" style="@style/FieldValue" />
+                <TextView android:id="@+id/viewPhilHealth" style="@style/FieldValue" />
+                <TextView android:id="@+id/viewSSS" style="@style/FieldValue" />
+                <TextView android:id="@+id/viewTIN" style="@style/FieldValue" />
+                <TextView android:id="@+id/viewAgencyID" style="@style/FieldValue" />
+
+                <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#F3F4F6" android:layout_marginVertical="8dp"/>
+
+                <TextView style="@style/FieldLabel" android:text="@string/label_res_address" />
+                <TextView android:id="@+id/viewResAddress" style="@style/FieldValue" />
+
+                <TextView style="@style/FieldLabel" android:text="@string/label_perm_address" />
+                <TextView android:id="@+id/viewPermAddress" style="@style/FieldValue" />
+
+                <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#F3F4F6" android:layout_marginVertical="8dp"/>
+
+                <TextView style="@style/FieldLabel" android:text="@string/label_contact" />
+                <TextView android:id="@+id/viewTelephone" style="@style/FieldValue" />
+                <TextView android:id="@+id/viewMobile" style="@style/FieldValue" />
+                <TextView android:id="@+id/viewEmail" style="@style/FieldValue" />
+            </LinearLayout>
+
+            <!-- II. FAMILY BACKGROUND -->
+            <TextView
+                style="@style/ViewSectionHeader"
+                android:text="@string/family_background_section"
+                android:textColor="@color/primary"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:drawableStart="@drawable/ic_group"
+                android:drawablePadding="8dp"
+                android:gravity="center_vertical" />
+
+            <LinearLayout
+                style="@style/SectionCard"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/spouse_information"
+                    android:textColor="@color/primary"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <TextView style="@style/FieldLabel" android:text="@string/label_full_name" />
+                <TextView android:id="@+id/viewSpouseName" style="@style/FieldValue" />
+
+                <TextView style="@style/FieldLabel" android:text="@string/label_spouse_work" />
+                <TextView android:id="@+id/viewSpouseWork" style="@style/FieldValue" />
+
+                <TextView style="@style/FieldLabel" android:text="@string/label_spouse_contact" />
+                <TextView android:id="@+id/viewSpouseContact" style="@style/FieldValue" />
+
+                <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#F3F4F6" android:layout_marginVertical="12dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/label_parents_info"
+                    android:textColor="@color/primary"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <TextView style="@style/FieldLabel" android:text="@string/label_father_name" />
+                <TextView android:id="@+id/viewFatherName" style="@style/FieldValue" />
+
+                <TextView style="@style/FieldLabel" android:text="@string/label_mother_name" />
+                <TextView android:id="@+id/viewMotherName" style="@style/FieldValue" />
+
+                <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#F3F4F6" android:layout_marginVertical="12dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/children"
+                    android:textColor="@color/primary"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="12dp"/>
+
+                <TextView android:id="@+id/viewChildrenList" style="@style/FieldValue" />
+            </LinearLayout>
+
+            <!-- III. EDUCATIONAL BACKGROUND -->
+            <TextView
+                style="@style/ViewSectionHeader"
+                android:text="@string/educational_background_section"
+                android:textColor="@color/primary"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:drawableStart="@drawable/ic_school"
+                android:drawablePadding="8dp"
+                android:gravity="center_vertical" />
+
+            <LinearLayout
+                style="@style/SectionCard"
+                android:orientation="vertical">
+
+                <!-- Elementary -->
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/elementary" android:textColor="@color/primary" android:textSize="11sp" android:textStyle="bold" android:layout_marginBottom="4dp"/>
+                <TextView android:id="@+id/viewElemDetails" style="@style/FieldValue" />
+
+                <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#F3F4F6" android:layout_marginVertical="12dp"/>
+
+                <!-- Secondary -->
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/secondary" android:textColor="@color/primary" android:textSize="11sp" android:textStyle="bold" android:layout_marginBottom="4dp"/>
+                <TextView android:id="@+id/viewSecDetails" style="@style/FieldValue" />
+
+                <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#F3F4F6" android:layout_marginVertical="12dp"/>
+
+                <!-- Vocational -->
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/vocational_trade_course" android:textColor="@color/primary" android:textSize="11sp" android:textStyle="bold" android:layout_marginBottom="4dp"/>
+                <TextView android:id="@+id/viewVocDetails" style="@style/FieldValue" />
+
+                <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#F3F4F6" android:layout_marginVertical="12dp"/>
+
+                <!-- College -->
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/college" android:textColor="@color/primary" android:textSize="11sp" android:textStyle="bold" android:layout_marginBottom="4dp"/>
+                <TextView android:id="@+id/viewColDetails" style="@style/FieldValue" />
+
+                <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#F3F4F6" android:layout_marginVertical="12dp"/>
+
+                <!-- Graduate Studies -->
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/graduate_studies" android:textColor="@color/primary" android:textSize="11sp" android:textStyle="bold" android:layout_marginBottom="4dp"/>
+                <TextView android:id="@+id/viewGradDetails" style="@style/FieldValue" />
+            </LinearLayout>
+
+            <!-- VERIFICATION -->
+            <TextView
+                style="@style/ViewSectionHeader"
+                android:text="@string/label_verification"
+                android:textColor="@color/primary"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:drawableStart="@drawable/abc_btn_check_material"
+                android:drawablePadding="8dp"
+                android:gravity="center_vertical" />
+
+            <LinearLayout
+                style="@style/SectionCard"
+                android:orientation="vertical">
+
+                <TextView style="@style/FieldLabel" android:text="@string/label_signature" />
+                <TextView android:id="@+id/viewSignature" style="@style/FieldValue" />
+
+                <TextView style="@style/FieldLabel" android:text="@string/label_date" />
+                <TextView android:id="@+id/viewDate" style="@style/FieldValue" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Bottom Navigation -->
+    <LinearLayout
+        android:id="@+id/bottomNavigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <Button
+            android:id="@+id/btnMainMenu"
+            style="@style/SecondaryButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginEnd="8dp"
+            android:text="@string/back_to_main_menu" />
+
+        <Button
+            android:id="@+id/btnEditForm"
+            style="@style/PrimaryButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="8dp"
+            android:text="@string/edit_form" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

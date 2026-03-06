@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="civil_status_options">
+        <item>Single</item>
+        <item>Married</item>
+        <item>Widowed</item>
+        <item>Separated</item>
+        <item>Other/s</item>
+    </string-array>
+
+    <string-array name="blood_type_options">
+        <item>-- Select Blood Type --</item>
+        <item>A+</item>
+        <item>A-</item>
+        <item>B+</item>
+        <item>B-</item>
+        <item>AB+</item>
+        <item>AB-</item>
+        <item>O+</item>
+        <item>O-</item>
+    </string-array>
+
+    <string-array name="name_extension_options">
+        <item>None</item>
+        <item>Jr.</item>
+        <item>Sr.</item>
+        <item>I</item>
+        <item>II</item>
+        <item>III</item>
+        <item>IV</item>
+        <item>V</item>
+    </string-array>
+</resources>
