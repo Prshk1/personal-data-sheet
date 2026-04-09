@@ -114,6 +114,11 @@
     <string name="view_edu_course_period_format">%1$s\nCourse: %2$s\nPeriod: %3$s - %4$s</string>
     <string name="view_edu_full_format">%1$s\nCourse: %2$s\nPeriod: %3$s - %4$s\nHonors: %5$s</string>
 
+    <string name="view_file_personal_format">📁 Personal Info Saved — Name: %1$s, Surname: %2$s</string>
+    <string name="view_file_family_format">📁 Family Background Saved — Father: %1$s, Mother: %2$s</string>
+    <string name="view_file_educational_format">📁 Educational Background Saved — Elementary: %1$s, Secondary: %2$s</string>
+    <string name="view_file_not_saved">📁 Not yet saved.</string>
+
     <string name="verification_section">Verification</string>
     <string name="signature_label">Signature</string>
     <string name="enter_signature_hint">Enter signature name</string>

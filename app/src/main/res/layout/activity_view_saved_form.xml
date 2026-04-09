@@ -69,11 +69,25 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="24dp"
+                android:layout_marginBottom="16dp"
                 android:gravity="center"
                 android:text="@string/pds_sub_header"
                 android:textColor="#9CA3AF"
                 android:textSize="12sp" />
+
+            <!-- File Save Banner: Personal Information -->
+            <TextView
+                android:id="@+id/viewFileSummaryPersonal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:background="#EDE9FE"
+                android:padding="10dp"
+                android:gravity="center"
+                android:textColor="#6D28D9"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:text="@string/view_file_not_saved" />
 
             <!-- I. PERSONAL INFORMATION -->
             <TextView
@@ -146,6 +160,20 @@
             </LinearLayout>
 
             <!-- II. FAMILY BACKGROUND -->
+            <!-- File Save Banner: Family Background -->
+            <TextView
+                android:id="@+id/viewFileSummaryFamily"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:background="#EDE9FE"
+                android:padding="10dp"
+                android:gravity="center"
+                android:textColor="#6D28D9"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:text="@string/view_file_not_saved" />
+
             <TextView
                 style="@style/ViewSectionHeader"
                 android:text="@string/family_background_section"
@@ -208,6 +236,20 @@
             </LinearLayout>
 
             <!-- III. EDUCATIONAL BACKGROUND -->
+            <!-- File Save Banner: Educational Background -->
+            <TextView
+                android:id="@+id/viewFileSummaryEducational"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:background="#EDE9FE"
+                android:padding="10dp"
+                android:gravity="center"
+                android:textColor="#6D28D9"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:text="@string/view_file_not_saved" />
+
             <TextView
                 style="@style/ViewSectionHeader"
                 android:text="@string/educational_background_section"

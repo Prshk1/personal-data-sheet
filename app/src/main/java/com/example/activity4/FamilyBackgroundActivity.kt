@@ -10,6 +10,8 @@ import androidx.core.content.edit
 
 class FamilyBackgroundActivity : AppCompatActivity() {
 
+    private val filename = "family_background.txt"
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_family_background)
@@ -42,7 +44,7 @@ class FamilyBackgroundActivity : AppCompatActivity() {
         if (motherSurname?.text?.isBlank() == true) { motherSurname.error = "Required"; isValid = false }
 
         if (isValid) {
-            getSharedPreferences("PDS_DATA", Context.MODE_PRIVATE).edit {
+            getSharedPreferences("PDS_DATA", MODE_PRIVATE).edit {
                 // Spouse
                 putString("spouseLastName", findViewById<EditText>(R.id.spouseSurname)?.text?.toString() ?: "")
                 putString("spouseFirstName", findViewById<EditText>(R.id.spouseFirstName)?.text?.toString() ?: "")
@@ -68,12 +70,28 @@ class FamilyBackgroundActivity : AppCompatActivity() {
                 putString("motherFirstName", findViewById<EditText>(R.id.motherFirstName)?.text?.toString() ?: "")
                 putString("motherMiddleName", findViewById<EditText>(R.id.motherMiddleName)?.text?.toString() ?: "")
             }
+
+            // Save to local file storage
+            saveData(fatherFirstName, motherSurname)
         }
         return isValid
     }
 
+    fun saveData(name: EditText, gender: EditText) {
+        val first_text = name.text.toString()
+        val second_text = gender.text.toString()
+
+        val saveData = first_text + "," + second_text
+
+        openFileOutput(filename, Context.MODE_PRIVATE).use {
+            it.write(saveData.toByteArray())
+        }
+
+        Toast.makeText(this, "Save Successfully", Toast.LENGTH_SHORT).show()
+    }
+
     private fun loadSavedData() {
-        val prefs = getSharedPreferences("PDS_DATA", Context.MODE_PRIVATE)
+        val prefs = getSharedPreferences("PDS_DATA", MODE_PRIVATE)
         findViewById<EditText>(R.id.fatherFirstName)?.setText(prefs.getString("fatherFirstName", ""))
         findViewById<EditText>(R.id.motherSurname)?.setText(prefs.getString("motherLastName", ""))
         

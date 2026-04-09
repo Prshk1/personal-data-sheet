@@ -45,6 +45,10 @@ class MainActivity : AppCompatActivity() {
             getSharedPreferences("PDS_DATA", MODE_PRIVATE).edit {
                 clear()
             }
+            // Delete all 3 section files saved by each activity's saveData()
+            deleteFile("personal_info.txt")
+            deleteFile("family_background.txt")
+            deleteFile("educational_background.txt")
             Toast.makeText(this, "Form Data Reset", Toast.LENGTH_SHORT).show()
         }
     }
